@@ -49,6 +49,7 @@ m4/lt~obsolete.m4
 Makefile
 
 /node_modules
+node_modules/
 
 # Created by https://www.toptal.com/developers/gitignore/api/webstorm+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=webstorm+all
