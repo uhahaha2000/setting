@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko" itemscope="" itemtype="https://schema.org/WebPage">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, target-densitydpi=medium-dpi"
+		/>
+		<title>PATH</title>
+		<style>
+			html {
+				font-size: 20px;
+			}
+			.page-path {
+				text-align: center;
+			}
+			.markup-list {
+				width: 100%;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			.markup-list a {
+				color: #000;
+			}
+			.markup-list thead th,
+			.markup-list thead td {
+				padding: 0.4rem 0.75rem;
+			}
+			.markup-list th {
+				background-color: #f7f7f7;
+			}
+			.markup-list td:before {
+				display: none;
+			}
+			.markup-list th,
+			.markup-list td {
+				display: table-cell;
+				font-size: 0.8rem;
+				border-bottom: 1px solid #f7f5ff;
+			}
+			.markup-list thead th {
+				border-bottom: 1px solid #e7e7f7;
+			}
+			.markup-list td.complete {
+				color: #fff;
+			}
+			.markup-list th,
+			.markup-list td.state {
+				text-align: center;
+			}
+			.markup-list td.path,
+			.markup-list td.pageid,
+			.markup-list td:last-child {
+				color: #999;
+			}
+			.markup-list tbody tr:hover th,
+			.markup-list tbody tr:hover td {
+				background-color: rgb(208, 204, 204);
+			}
+			.markup-list th:first-child,
+			.markup-list td:first-child,
+			.markup-list .number {
+				width: 10%;
+			}
+			.markup-list th.path,
+			.markup-list td.path,
+			.markup-list th.state,
+			.markup-list td.state {
+				width: 15%;
+				text-align: center;
+			}
+			.markup-list th.pageid,
+			.markup-list td.pageid {
+				width: 20%;
+			}
+			.markup-list th:last-child,
+			.markup-list td:last-child {
+				width: 12%;
+			}
+
+			@media screen and (max-width: 420px) {
+				body {
+					font-size: 12px;
+				}
+				.markup-list .path,
+				.markup-list .pageid {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="content" rol="main" class="page-path">
+				<h1>Title</h1>
+				<table class="markup-list">
+					<thead>
+						<tr>
+							<th scope="col" class="number">No.</th>
+							<th scope="col">PAGE</th>
+							<th scope="col" class="path">PATH</th>
+							<th scope="col" class="pageid">PAGE ID</th>
+							<th scope="col" class="state">Link</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="number">1</td>
+							<td>main</td>
+							<td class="path"></td>
+							<td class="pageid"></td>
+							<td class="state complete">
+								<a target="_blank" href="./pages/main/main.html">Link</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="number">1</td>
+							<td>about</td>
+							<td class="path"></td>
+							<td class="pageid"></td>
+							<td class="state complete">
+								<a target="_blank" href="./pages/main/main.html">Link</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
