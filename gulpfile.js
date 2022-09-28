@@ -8,8 +8,7 @@ const browserSync = require("browser-sync");
 const scss = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 
-const babel = require('gulp-babel');
-
+const babel = require("gulp-babel");
 
 const ROOT = "/";
 const PORT = 8888;
@@ -18,10 +17,9 @@ function connectServer(done) {
 	browserSync.init({
 		server: {
 			baseDir: "." + ROOT,
-			index: "pages/index.html"
+			index: "pages/index.html",
 		},
 		port: PORT,
-		
 	});
 
 	/* connect.server({
@@ -66,7 +64,6 @@ function scssCompile(done) {
 			precision: 8,
 			sourceComments: true, // 코멘트 제거 여부
 		};
-
 		src("./src/scss/**/*.scss")
 			.pipe(scss().on("error", scss.logError))
 			.pipe(sourcemaps.init())
@@ -79,18 +76,18 @@ function scssCompile(done) {
 	done();
 }
 
-function jsBuild(done){
-	new Promise((resolve) => {
-		src('./src/js/**.js')
-			.pipe(babel({
-				presets: ['@babel/preset-env']
-			}))
-			.pipe(dest('./js'))
-			.pipe(browserSync.reload({ stream: true }));
-	
-		resolve();
-	  });
-	  done();
+function jsjs() {
+	return src("./src/js/**.js")
+		.pipe(sourcemaps.init())
+		.pipe(
+			babel({
+				presets: ["@babel/env"],
+				plugins: ["@babel/transform-runtime"],
+			})
+		)
+		.pipe(sourcemaps.write("./", { sourceRoot: "../src" }))
+		.pipe(dest("./js"));
+	//.pipe(browserSync.reload({ stream: true }));
 }
 
 function watchAuto(done) {
@@ -108,10 +105,10 @@ function watchAuto(done) {
 		console.log(stats);
 		scssCompile(done);
 	});
-	_js.on('all', function(path, stats){
+	_js.on("all", function (path, stats) {
 		console.log(path);
 		console.log(stats);
-		jsBuild(done);
+		jsjs(done);
 	});
 	done();
 }
@@ -119,11 +116,11 @@ function watchAuto(done) {
 exports.fileInclude = fileInclude;
 exports.server = connectServer;
 exports.scssCompile = scssCompile;
-exports.jsBuild = jsBuild;
+exports.jsjs = jsjs;
 exports.watch = watchAuto;
 exports.default = series(
 	parallel(fileInclude, scssCompile),
-	jsBuild,
+	jsjs,
 	connectServer,
 	watchAuto
 );
